@@ -1,17 +1,16 @@
 export default function Child({ valueDariParent, setDariParent }) {
   const hilangkanInputan = (inputan) => {
-    const hapusInputan = valueDariParent.filter(
-      (inputan) => (inputan = !valueDariParent)
-    );
-    setDariParent(hapusInputan);
+    const inputanBaru = valueDariParent.filter((input) => input !== inputan);
+    setDariParent(inputanBaru);
   };
   return (
     <div>
       <ul>
-        {valueDariParent.map((event) => (
-          <div key={event}>
+        {valueDariParent.map((valInputan) => (
+          <div>
             <li style={{ listStyle: "none" }}>
-              {event} <button onClick={() => hilangkanInputan(event)}>X</button>
+              {valInputan}{" "}
+              <button onClick={() => hilangkanInputan(valInputan)}>X</button>
             </li>
           </div>
         ))}
